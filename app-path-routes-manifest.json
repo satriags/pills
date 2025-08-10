@@ -1,0 +1,12 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
+  "/blog/page": "/blog",
+  "/contact/page": "/contact",
+  "/doc/page": "/doc",
+  "/member/page": "/member",
+  "/page": "/",
+  "/pricing/page": "/pricing",
+  "/product/page": "/product",
+  "/status/page": "/status"
+}
