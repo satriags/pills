@@ -19,13 +19,13 @@ export class AuthService {
         message: 'User not found!',
         error: 'Forbidden',
       });
-    if (user.role == 'USER') {
-      throw new UnauthorizedException({
-        code: 403,
-        message: 'Access denied',
-        error: 'Forbidden',
-      });
-    }
+    // if (user.role == 'USER') {
+    //   throw new UnauthorizedException({
+    //     code: 403,
+    //     message: 'Access denied',
+    //     error: 'Forbidden',
+    //   });
+    // }
     const currentUser = user;
     return currentUser;
   }
@@ -33,9 +33,6 @@ export class AuthService {
   async findOne(id: string) {
     return await this.primaService.user.findUnique({
       where: { id },
-      include: {
-        company: true,
-      },
     });
   }
 }

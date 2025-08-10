@@ -1,3 +1,388 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Pills Theme Enforcement */
+[data-theme="pills"] {
+    color-scheme: light;
+}
+
+[data-theme="pills-dark"] {
+    color-scheme: dark;
+}
+
+/* Force Pills theme colors with !important */
+[data-theme="pills"] {
+    --p: 213 46% 58% !important;
+    /* #5577AA exact HSL */
+    --pf: 213 46% 53% !important;
+    --pc: 0 0% 100% !important;
+    --b1: 0 0% 100% !important;
+    /* white background */
+    --b2: 220 14% 96% !important;
+    --b3: 214 32% 91% !important;
+    --bc: 216 34% 17% !important;
+    /* dark text */
+}
+
+[data-theme="pills-dark"] {
+    --p: 213 46% 58% !important;
+    /* #5577AA exact HSL */
+    --pf: 213 46% 53% !important;
+    --pc: 0 0% 100% !important;
+    --b1: 216 34% 17% !important;
+    /* dark background */
+    --b2: 215 25% 27% !important;
+    --b3: 215 16% 35% !important;
+    --bc: 0 0% 100% !important;
+    /* light text */
+}
+
+/* Ensure Pills theme variables are applied correctly */
+:root[data-theme="pills"] {
+    --p: 213 46% 58%;
+    /* #5577AA exact HSL */
+    --pf: 213 46% 53%;
+    --pc: 0 0% 100%;
+    --s: 213 48% 63%;
+    /* #7799CC */
+    --sf: 213 48% 58%;
+    --sc: 0 0% 100%;
+    --a: 196 76% 76%;
+    /* #8BB9F0 */
+    --af: 196 76% 71%;
+    --ac: 216 34% 17%;
+    --n: 220 13% 30%;
+    /* #3d4451 */
+    --nf: 220 13% 25%;
+    --nc: 0 0% 100%;
+    --b1: 0 0% 100%;
+    /* #ffffff */
+    --b2: 220 14% 96%;
+    /* #f8fafc */
+    --b3: 214 32% 91%;
+    /* #e2e8f0 */
+    --bc: 216 34% 17%;
+    /* #1a202c */
+    --in: 213 46% 58%;
+    --inc: 0 0% 100%;
+    --su: 122 39% 49%;
+    --suc: 0 0% 100%;
+    --wa: 36 100% 50%;
+    --wac: 0 0% 100%;
+    --er: 4 90% 58%;
+    --erc: 0 0% 100%;
+}
+
+:root[data-theme="pills-dark"] {
+    --p: 213 46% 58%;
+    /* #5577AA consistent primary */
+    --pf: 213 46% 53%;
+    --pc: 0 0% 100%;
+    --s: 196 76% 76%;
+    /* #8BB9F0 */
+    --sf: 196 76% 71%;
+    --sc: 216 34% 17%;
+    --a: 204 82% 84%;
+    /* #AACCEE */
+    --af: 204 82% 79%;
+    --ac: 216 34% 17%;
+    --n: 220 17% 20%;
+    /* #2a2e37 */
+    --nf: 220 17% 15%;
+    --nc: 0 0% 100%;
+    --b1: 216 34% 17%;
+    /* #1a202c */
+    --b2: 215 25% 27%;
+    /* #2d3748 */
+    --b3: 215 16% 35%;
+    /* #4a5568 */
+    --bc: 0 0% 100%;
+    /* #ffffff */
+    --in: 213 46% 58%;
+    --inc: 0 0% 100%;
+    --su: 122 39% 49%;
+    --suc: 0 0% 100%;
+    --wa: 36 100% 50%;
+    --wac: 0 0% 100%;
+    --er: 4 90% 58%;
+    --erc: 0 0% 100%;
+}
+
+/* Custom Pills Animations */
+@keyframes float-0 {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes float-1 {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(90deg);
+    }
+}
+
+@keyframes float-2 {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(270deg);
+    }
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(99, 102, 241, 0.6), 0 0 60px rgba(99, 102, 241, 0.3);
+    }
+}
+
+.animate-float-0 {
+    animation: float-0 8s ease-in-out infinite;
+}
+
+.animate-float-1 {
+    animation: float-1 10s ease-in-out infinite;
+}
+
+.animate-float-2 {
+    animation: float-2 12s ease-in-out infinite;
+}
+
+.animate-gradient {
+    animation: gradient-shift 3s ease infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Utility classes to force visible theme changes */
+.theme-transition {
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* Force primary color visibility */
+.btn-primary,
+.bg-primary {
+    background-color: hsl(var(--p)) !important;
+    border-color: hsl(var(--p)) !important;
+}
+
+.text-primary {
+    color: hsl(var(--p)) !important;
+}
+
+/* Force background color changes */
+body {
+    background-color: hsl(var(--b1)) !important;
+    color: hsl(var(--bc)) !important;
+}
+
+.bg-base-100 {
+    background-color: hsl(var(--b1)) !important;
+}
+
+.bg-base-200 {
+    background-color: hsl(var(--b2)) !important;
+}
+
+.bg-base-300 {
+    background-color: hsl(var(--b3)) !important;
+}
+
+.text-base-content {
+    color: hsl(var(--bc)) !important;
+}
+
+/* Fix page backgrounds to respond to theme */
+.min-h-screen {
+    background-color: hsl(var(--b1)) !important;
+}
+
+/* Force gradient backgrounds to use theme colors */
+.bg-gradient-to-br {
+    background: linear-gradient(to bottom right,
+            hsl(var(--b1)),
+            hsl(var(--b2)),
+            hsl(var(--b3) / 0.3)) !important;
+}
+
+/* Fix form controls for theme consistency */
+.input,
+.textarea,
+.select {
+    background-color: hsl(var(--b1)) !important;
+    color: hsl(var(--bc)) !important;
+    border-color: hsl(var(--b3)) !important;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+    background-color: hsl(var(--b1)) !important;
+    color: hsl(var(--bc)) !important;
+    border-color: hsl(var(--p)) !important;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: hsl(var(--bc) / 0.5) !important;
+}
+
+.label-text {
+    color: hsl(var(--bc)) !important;
+}
+
+/* Fix option elements for select dropdowns */
+.select option {
+    background-color: hsl(var(--b1)) !important;
+    color: hsl(var(--bc)) !important;
+}
+
+/* Navbar hover customization for Pills theme */
+.navbar .menu li>a:hover,
+.navbar .menu li>button:hover,
+.menu li>a:hover,
+.menu li>button:hover {
+    background-color: hsl(var(--b2)) !important;
+    color: hsl(var(--p)) !important;
+}
+
+.navbar .menu li>a.active,
+.navbar .menu li>button.active,
+.menu li>a.active,
+.menu li>button.active {
+    background-color: hsl(var(--p)) !important;
+    color: hsl(var(--pc)) !important;
+}
+
+/* Force navbar text colors to use Pills theme */
+.navbar .btn-ghost:hover {
+    background-color: hsl(var(--b2)) !important;
+    color: hsl(var(--p)) !important;
+}
+
+.text-primary {
+    color: hsl(var(--p)) !important;
+}
+
+.hover\:text-primary:hover {
+    color: hsl(var(--p)) !important;
+}
+
+/* Force all Links in navbar to use proper hover colors */
+.navbar a:hover,
+.menu a:hover {
+    color: hsl(var(--p)) !important;
+}
+
+/* Ensure text visibility in all themes */
+.text-base-content {
+    color: hsl(var(--bc)) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: hsl(var(--bc)) !important;
+}
+
+p {
+    color: hsl(var(--bc)) !important;
+}
+
+/* Fix card backgrounds */
+.card {
+    background-color: hsl(var(--b1)) !important;
+    border-color: hsl(var(--b3)) !important;
+}
+
+/* Fix sidebar and main content areas */
+.bg-base-200 {
+    background-color: hsl(var(--b2)) !important;
+}
+
+.border-base-300 {
+    border-color: hsl(var(--b3)) !important;
+}
+
+.stat-title {
+    color: hsl(var(--bc)) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--b2));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--p));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--pf));
+}
+
+/* Pills logo animation */
+.pills-logo {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+    background-size: 400% 400%;
+    animation: gradient-shift 4s ease infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}

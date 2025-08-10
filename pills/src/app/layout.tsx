@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Pills Satriags Developer",
   description: "Your Pills In Your Program",
+  icons: {
+    icon: "/icon/pills-logo.png",
+    shortcut: "/icon/pills-logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} theme-transition`}>
         {children}
       </body>
     </html>
